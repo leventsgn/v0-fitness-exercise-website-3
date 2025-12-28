@@ -13,7 +13,7 @@ const exerciseCategories = [
     title: "Boyun ve Sırt Egzersizleri",
     description: "Boyun ve sırt ağrılarını azaltan, postür düzeltici hareketler",
     icon: Activity,
-    image: "/person-doing-neck-and-back-physiotherapy-stretches.jpg",
+    image: "/neck-stretching-exercise-physiotherapy.jpg",
     color: "from-accent/20 to-accent/5",
   },
   {
@@ -29,7 +29,7 @@ const exerciseCategories = [
     title: "Omuz Egzersizleri",
     description: "Donuk omuz, rotator cuff ve omuz ağrıları için tedavi hareketleri",
     icon: Hand,
-    image: "/shoulder-physiotherapy-exercises-stretching.jpg",
+    image: "/pendulum-shoulder-exercise-physiotherapy.jpg",
     color: "from-chart-3/20 to-chart-3/5",
   },
   {
