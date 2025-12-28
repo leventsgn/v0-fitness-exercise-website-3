@@ -7,12 +7,13 @@ import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
 
+const REPO_NAME = process.env.GITHUB_PAGES ? (process.env.GITHUB_REPOSITORY?.split('/')?.[1] ?? 'v0-fitness-exercise-website-3') : ''
+const BASE = REPO_NAME ? `/${REPO_NAME}` : ''
+
 export const metadata: Metadata = {
   title: "FiziyoRehber - Fizyoterapi Egzersiz Rehberi",
   description: "Profesyonel fizyoterapi egzersizleri ve doğru hareket teknikleri",
   generator: "v0.app",
-  const REPO_NAME = process.env.GITHUB_PAGES ? (process.env.GITHUB_REPOSITORY?.split('/')?.[1] ?? 'v0-fitness-exercise-website-3') : ''
-  const BASE = REPO_NAME ? `/${REPO_NAME}` : ''
 
   icons: {
     icon: [
