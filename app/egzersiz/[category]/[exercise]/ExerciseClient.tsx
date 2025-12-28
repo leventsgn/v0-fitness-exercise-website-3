@@ -6,7 +6,7 @@ const REPO_NAME = process.env.GITHUB_PAGES ? (process.env.GITHUB_REPOSITORY?.spl
 const BASE = REPO_NAME ? `/${REPO_NAME}` : ''
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Play, Pause, RotateCcw, Plus, Minus, User, AlertCircle } from "lucide-react"
+import { ArrowLeft, Play, Pause, RotateCcw, Plus, Minus, User, AlertCircle, Music } from "lucide-react"
 import { useState, useEffect } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
 
@@ -21,6 +21,7 @@ export default function ExerciseClient({ category, exercise, exerciseData }: { c
   const [showVideo, setShowVideo] = useState(true)
   const [painLevel, setPainLevel] = useState(0)
   const [painHistory, setPainHistory] = useState<number[]>([])
+  const [showMusic, setShowMusic] = useState(false)
 
   useEffect(() => {
     let interval: NodeJS.Timeout
@@ -112,6 +113,15 @@ export default function ExerciseClient({ category, exercise, exerciseData }: { c
               </Button>
             </Link>
             <div className="flex items-center gap-2">
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="rounded-lg bg-transparent"
+                onClick={() => setShowMusic(!showMusic)}
+              >
+                <Music className="w-5 h-5" />
+                <span className="sr-only">Müzik</span>
+              </Button>
               <Link href="/profil">
                 <Button variant="outline" size="icon" className="rounded-lg bg-transparent">
                   <User className="w-5 h-5" />
@@ -125,6 +135,30 @@ export default function ExerciseClient({ category, exercise, exerciseData }: { c
       </header>
 
       <div className="container mx-auto px-4 py-8 max-w-6xl">
+        {/* Spotify Music Player */}
+        {showMusic && (
+          <Card className="mb-6 border-green-500/50">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Music className="w-5 h-5 text-green-500" />
+                Egzersiz Müziği
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <iframe
+                style={{ borderRadius: "12px" }}
+                src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1s9knjP51Oa?utm_source=generator&theme=0"
+                width="100%"
+                height="152"
+                frameBorder="0"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
+            </CardContent>
+          </Card>
+        )}
+
         {/* Exercise Title */}
         <div className="mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-balance">{ex.title}</h1>
