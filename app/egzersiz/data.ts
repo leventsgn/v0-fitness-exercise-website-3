@@ -168,7 +168,7 @@ export const exerciseDetails: Record<string, Record<string, any>> = {
     },
   },
   omuz: {
-    sarkaç: {
+    sarkac: {
       title: "Sarkaç Egzersizi (Pendulum)",
       description:
         "Omuz ağrıları ve donuk omuz için yapılan pasif hareket egzersizi. Omuz eklemini gevşetir ve hareket açıklığını artırır.",

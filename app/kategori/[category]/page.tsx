@@ -86,7 +86,7 @@ const exerciseData: Record<
     title: "Omuz Egzersizleri",
     exercises: [
       {
-        id: "sarkaç",
+        id: "sarkac",
         title: "Sarkaç Egzersizi",
         difficulty: "Başlangıç",
         equipment: "Ekipman Yok",
