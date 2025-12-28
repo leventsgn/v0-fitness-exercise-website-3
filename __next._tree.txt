@@ -6,4 +6,4 @@
 :HL["/v0-fitness-exercise-website-3/lower-back-pain-exercises-physiotherapy.jpg","image"]
 :HL["/v0-fitness-exercise-website-3/hand-and-wrist-physiotherapy-exercises.jpg","image"]
 :HL["/v0-fitness-exercise-website-3/ankle-and-foot-physiotherapy-rehabilitation.jpg","image"]
-0:{"buildId":"mlrPo2r473yniw3w-bUrg","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"vtYu8cY8fkR_55b-Xfs61","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
