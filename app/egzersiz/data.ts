@@ -1,11 +1,14 @@
+const REPO_NAME = process.env.GITHUB_PAGES ? (process.env.GITHUB_REPOSITORY?.split('/')?.[1] ?? 'v0-fitness-exercise-website-3') : ''
+const BASE = REPO_NAME ? `/${REPO_NAME}` : ''
+
 export const exerciseDetails: Record<string, Record<string, any>> = {
   "boyun-sirt": {
     "boyun-germe": {
       title: "Boyun Germe Egzersizi",
       description:
         "Boyun kaslarını gevşetmek ve boyun ağrılarını azaltmak için yapılan temel germe egzersiz. Özellikle uzun süre bilgisayar başında çalışanlar için faydalıdır.",
-      image: "/neck-stretching-exercise-physiotherapy.jpg",
-      video: "/neck-stretching-exercise-demonstration-animation.jpg",
+      image: `${BASE}/neck-stretching-exercise-physiotherapy.jpg`,
+      video: `${BASE}/neck-stretching-exercise-demonstration-animation.jpg`,
       instructions: [
         "Dik bir şekilde oturun veya ayakta durun",
         "Başınızı yavaşça sağa doğru eğin, kulağınızı omzunuza yaklaştırın",
@@ -24,8 +27,8 @@ export const exerciseDetails: Record<string, Record<string, any>> = {
     "kedi-deve": {
       title: "Kedi-Deve Hareketi",
       description: "Omurga esnekliğini artıran ve sırt kaslarını gevşeten yoga kökenli bir fizyoterapi egzersizi.",
-      image: "/placeholder.svg?height=600&width=800",
-      video: "/cat-cow-exercise-demonstration-animation.jpg",
+      image: `${BASE}/placeholder.svg?height=600&width=800`,
+      video: `${BASE}/cat-cow-exercise-demonstration-animation.jpg`,
       instructions: [
         "Dört ayak üzerinde pozisyon alın (el ve dizler yerde)",
         "Ellerinizi omuz hizasında, dizlerinizi kalça hizasında yerleştirin",
@@ -46,8 +49,8 @@ export const exerciseDetails: Record<string, Record<string, any>> = {
     "kuadriseps-gucendirme": {
       title: "Kuadriseps Güçlendirme",
       description: "Diz stabilitesini artıran ve kuadriseps kasını güçlendiren temel rehabilitasyon egzersizi.",
-      image: "/knee-rehabilitation-exercises-physical-therapy.jpg",
-      video: "/quadriceps-strengthening-exercise-demonstration.jpg",
+      image: `${BASE}/knee-rehabilitation-exercises-physical-therapy.jpg`,
+      video: `${BASE}/quadriceps-strengthening-exercise-demonstration.jpg`,
       instructions: [
         "Sandalyeye dik bir şekilde oturun",
         "Bir bacağınızı yavaşça düz bir şekilde kaldırın",
@@ -69,8 +72,8 @@ export const exerciseDetails: Record<string, Record<string, any>> = {
       title: "Sarkaç Egzersizi (Pendulum)",
       description:
         "Omuz ağrıları ve donuk omuz için yapılan pasif hareket egzersizi. Omuz eklemini gevşetir ve hareket açıklığını artırır.",
-      image: "/pendulum-shoulder-exercise-physiotherapy.jpg",
-      video: "/shoulder-pendulum-exercise-demonstration-animation.jpg",
+      image: `${BASE}/pendulum-shoulder-exercise-physiotherapy.jpg`,
+      video: `${BASE}/shoulder-pendulum-exercise-demonstration-animation.jpg`,
       instructions: [
         "Bir masaya yaslanarak öne doğru eğilin",
         "Sağlıklı kolunuzla masaya destek olun",
@@ -93,8 +96,8 @@ export const exerciseDetails: Record<string, Record<string, any>> = {
       title: "Pelvik Tilt Egzersizi",
       description:
         "Bel ağrılarını azaltan ve core kaslarını aktive eden temel fizyoterapi hareketi. Lomber lordozis ve postür düzeltmede etkilidir.",
-      image: "/lower-back-pain-exercises-physiotherapy.jpg",
-      video: "/pelvic-tilt-exercise-demonstration-animation.jpg",
+      image: `${BASE}/lower-back-pain-exercises-physiotherapy.jpg`,
+      video: `${BASE}/pelvic-tilt-exercise-demonstration-animation.jpg`,
       instructions: [
         "Sırt üstü yatın, dizlerinizi bükerek ayaklarınızı yere koyun",
         "Kollarınızı yanlarınızda rahat bir pozisyonda tutun",
@@ -115,8 +118,8 @@ export const exerciseDetails: Record<string, Record<string, any>> = {
     "bilek-fleksiyonu": {
       title: "Bilek Fleksiyonu Egzersizi",
       description: "El bileği kaslarını güçlendiren ve karpal tünel sendromu tedavisinde kullanılan egzersiz.",
-      image: "/hand-and-wrist-physiotherapy-exercises.jpg",
-      video: "/wrist-flexion-exercise-demonstration.jpg",
+      image: `${BASE}/hand-and-wrist-physiotherapy-exercises.jpg`,
+      video: `${BASE}/wrist-flexion-exercise-demonstration.jpg`,
       instructions: [
         "Önkolunuzu bir yüzeye yerleştirin, eli dışarıda bırakın",
         "Avucunuz yukarı bakacak şekilde pozisyon alın",
@@ -138,8 +141,8 @@ export const exerciseDetails: Record<string, Record<string, any>> = {
       title: "Ayak Bileği Pompa Egzersizi",
       description:
         "Ayak bileği mobilitesini artıran ve şişliği azaltan temel egzersiz. Burkulma sonrası rehabilitasyonda kullanılır.",
-      image: "/ankle-and-foot-physiotherapy-rehabilitation.jpg",
-      video: "/ankle-pump-exercise-demonstration-animation.jpg",
+      image: `${BASE}/ankle-and-foot-physiotherapy-rehabilitation.jpg`,
+      video: `${BASE}/ankle-pump-exercise-demonstration-animation.jpg`,
       instructions: [
         "Sırt üstü veya oturarak pozisyon alın",
         "Bacağınızı uzatın",
