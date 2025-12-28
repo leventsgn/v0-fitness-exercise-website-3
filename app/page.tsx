@@ -4,6 +4,9 @@ import { Activity, Heart, Footprints, Hand, User } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 
+const REPO_NAME = process.env.GITHUB_PAGES ? (process.env.GITHUB_REPOSITORY?.split('/')?.[1] ?? 'v0-fitness-exercise-website-3') : ''
+const BASE = REPO_NAME ? `/${REPO_NAME}` : ''
+
 const exerciseCategories = [
   {
     id: "boyun-sirt",
@@ -114,7 +117,7 @@ export default function HomePage() {
                   <div className="relative h-48 overflow-hidden">
                     <div className={`absolute inset-0 bg-gradient-to-br ${category.color}`} />
                     <img
-                      src={category.image || "/placeholder.svg"}
+                      src={`${BASE}${category.image || "/placeholder.svg"}`}
                       alt={category.title}
                       className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
                     />

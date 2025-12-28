@@ -1,6 +1,9 @@
 "use client"
 
 import Link from "next/link"
+
+const REPO_NAME = process.env.GITHUB_PAGES ? (process.env.GITHUB_REPOSITORY?.split('/')?.[1] ?? 'v0-fitness-exercise-website-3') : ''
+const BASE = REPO_NAME ? `/${REPO_NAME}` : ''
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Play, Pause, RotateCcw, Plus, Minus, User } from "lucide-react"
@@ -105,12 +108,12 @@ export default function ExerciseClient({ category, exercise, exerciseData }: { c
               <div className="relative aspect-[4/3] bg-muted">
                 {showVideo && ex.video ? (
                   <img
-                    src={ex.video || "/placeholder.svg"}
+                    src={ex.video ? ex.video : `${BASE}/placeholder.svg`}
                     alt={`${ex.title} - Hareket Gösterimi`}
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <img src={ex.image || "/placeholder.svg"} alt={ex.title} className="w-full h-full object-cover" />
+                  <img src={ex.image ? ex.image : `${BASE}/placeholder.svg`} alt={ex.title} className="w-full h-full object-cover" />
                 )}
                 {ex.video && (
                   <div className="absolute bottom-4 right-4 flex gap-2">
