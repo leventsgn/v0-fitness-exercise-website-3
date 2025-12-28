@@ -6,7 +6,7 @@ const REPO_NAME = process.env.GITHUB_PAGES ? (process.env.GITHUB_REPOSITORY?.spl
 const BASE = REPO_NAME ? `/${REPO_NAME}` : ''
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Play, Pause, RotateCcw, Plus, Minus, User } from "lucide-react"
+import { ArrowLeft, Play, Pause, RotateCcw, Plus, Minus, User, AlertCircle } from "lucide-react"
 import { useState, useEffect } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
 
@@ -19,6 +19,8 @@ export default function ExerciseClient({ category, exercise, exerciseData }: { c
   const [restTimeLeft, setRestTimeLeft] = useState(ex.restTime)
   const [isRestTimerActive, setIsRestTimerActive] = useState(false)
   const [showVideo, setShowVideo] = useState(true)
+  const [painLevel, setPainLevel] = useState(0)
+  const [painHistory, setPainHistory] = useState<number[]>([])
 
   useEffect(() => {
     let interval: NodeJS.Timeout
@@ -49,11 +51,16 @@ export default function ExerciseClient({ category, exercise, exerciseData }: { c
 
   const handleSetComplete = () => {
     if (currentSet < ex.sets) {
+      // Ağrı seviyesini kaydet
+      if (painLevel > 0) {
+        setPainHistory([...painHistory, painLevel])
+      }
       setCurrentSet(currentSet + 1)
       setCurrentRep(0)
       setIsResting(true)
       setIsRestTimerActive(true)
       setRestTimeLeft(ex.restTime)
+      setPainLevel(0) // Yeni set için sıfırla
     }
   }
 
@@ -63,11 +70,34 @@ export default function ExerciseClient({ category, exercise, exerciseData }: { c
     setIsResting(false)
     setIsRestTimerActive(false)
     setRestTimeLeft(ex.restTime)
+    setPainLevel(0)
+    setPainHistory([])
   }
 
   const toggleRestTimer = () => {
     setIsRestTimerActive(!isRestTimerActive)
   }
+
+  const getPainColor = (level: number) => {
+    if (level === 0) return "bg-muted text-muted-foreground"
+    if (level <= 3) return "bg-green-500/20 text-green-600 dark:text-green-400"
+    if (level <= 5) return "bg-yellow-500/20 text-yellow-600 dark:text-yellow-400"
+    if (level <= 7) return "bg-orange-500/20 text-orange-600 dark:text-orange-400"
+    return "bg-red-500/20 text-red-600 dark:text-red-400"
+  }
+
+  const getPainDescription = (level: number) => {
+    if (level === 0) return "Ağrı Yok"
+    if (level <= 2) return "Hafif Rahatsızlık"
+    if (level <= 4) return "Orta Rahatsızlık"
+    if (level <= 6) return "Belirgin Ağrı"
+    if (level <= 8) return "Şiddetli Ağrı"
+    return "Dayanılmaz Ağrı"
+  }
+
+  const averagePain = painHistory.length > 0 
+    ? (painHistory.reduce((a, b) => a + b, 0) / painHistory.length).toFixed(1)
+    : "0"
 
   return (
     <div className="min-h-screen bg-background">
@@ -178,6 +208,57 @@ export default function ExerciseClient({ category, exercise, exerciseData }: { c
 
           {/* Workout Tracker Section */}
           <div className="space-y-6">
+            {/* Pain Level Assessment */}
+            <Card className="border-orange-500/50">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <AlertCircle className="w-5 h-5 text-orange-500" />
+                  Ağrı Değerlendirmesi
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="text-center">
+                  <div className={`text-4xl font-bold mb-2 px-4 py-2 rounded-lg ${getPainColor(painLevel)}`}>
+                    {painLevel}/10
+                  </div>
+                  <p className="text-sm text-muted-foreground">{getPainDescription(painLevel)}</p>
+                </div>
+                
+                <div className="grid grid-cols-11 gap-1">
+                  {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((level) => (
+                    <Button
+                      key={level}
+                      size="sm"
+                      variant={painLevel === level ? "default" : "outline"}
+                      onClick={() => setPainLevel(level)}
+                      disabled={isResting}
+                      className={`p-0 h-10 text-xs ${painLevel === level ? getPainColor(level) : ""}`}
+                    >
+                      {level}
+                    </Button>
+                  ))}
+                </div>
+
+                {painHistory.length > 0 && (
+                  <div className="pt-2 border-t">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">Ortalama Ağrı:</span>
+                      <span className="font-semibold">{averagePain}/10</span>
+                    </div>
+                    <div className="flex gap-1 mt-2">
+                      {painHistory.map((pain, idx) => (
+                        <div
+                          key={idx}
+                          className={`h-2 flex-1 rounded ${getPainColor(pain)}`}
+                          title={`Set ${idx + 1}: ${pain}/10`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
             {/* Set & Rep Counter */}
             <Card className="border-accent">
               <CardHeader>
