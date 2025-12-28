@@ -219,8 +219,9 @@ const difficultyColors: Record<string, string> = {
   İleri: "bg-destructive/20 text-destructive",
 }
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
-  const categoryData = exerciseData[params.category]
+export default async function CategoryPage({ params }: { params: { category: string } | Promise<{ category: string }> }) {
+  const { category } = await params
+  const categoryData = exerciseData[category]
 
   if (!categoryData) {
     notFound()

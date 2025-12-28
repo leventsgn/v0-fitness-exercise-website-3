@@ -1,12 +1,9 @@
-import ExerciseClient from "./ExerciseClient"
-import { notFound } from "next/navigation"
-
-const exerciseDetails: Record<string, Record<string, any>> = {
+export const exerciseDetails: Record<string, Record<string, any>> = {
   "boyun-sirt": {
     "boyun-germe": {
       title: "Boyun Germe Egzersizi",
       description:
-        "Boyun kaslarını gevşetmek ve boyun ağrılarını azaltmak için yapılan temel germe egzersizi. Özellikle uzun süre bilgisayar başında çalışanlar için faydalıdır.",
+        "Boyun kaslarını gevşetmek ve boyun ağrılarını azaltmak için yapılan temel germe egzersiz. Özellikle uzun süre bilgisayar başında çalışanlar için faydalıdır.",
       image: "/neck-stretching-exercise-physiotherapy.jpg",
       video: "/neck-stretching-exercise-demonstration-animation.jpg",
       instructions: [
@@ -48,7 +45,7 @@ const exerciseDetails: Record<string, Record<string, any>> = {
   diz: {
     "kuadriseps-gucendirme": {
       title: "Kuadriseps Güçlendirme",
-      description: "Diz stabilitesini artıran ve kuadriseps kasını güçlendiren temel rehabilitasyon egzersiz",
+      description: "Diz stabilitesini artıran ve kuadriseps kasını güçlendiren temel rehabilitasyon egzersizi.",
       image: "/knee-rehabilitation-exercises-physical-therapy.jpg",
       video: "/quadriceps-strengthening-exercise-demonstration.jpg",
       instructions: [
@@ -159,21 +156,4 @@ const exerciseDetails: Record<string, Record<string, any>> = {
       warnings: ["Hareket yumuşak olmalı", "Kramp hissederseniz dinlenin"],
     },
   },
-}
-
-export default async function ExercisePage({ params }: { params: { category: string; exercise: string } | Promise<{ category: string; exercise: string }> }) {
-  const { category, exercise } = await params
-  const exerciseObj = exerciseDetails[category]?.[exercise]
-
-  if (!exerciseObj) {
-    notFound()
-  }
-
-  return <ExerciseClient category={category} exercise={exercise} exerciseData={exerciseObj} />
-}
-
-export async function generateStaticParams() {
-  return Object.entries(exerciseDetails).flatMap(([category, exercises]) =>
-    Object.keys(exercises).map((exercise) => ({ category, exercise }))
-  )
 }

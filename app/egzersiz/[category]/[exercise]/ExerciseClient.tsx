@@ -1,0 +1,302 @@
+"use client"
+
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { ArrowLeft, Play, Pause, RotateCcw, Plus, Minus, User } from "lucide-react"
+import { useState, useEffect } from "react"
+import { ThemeToggle } from "@/components/theme-toggle"
+
+export default function ExerciseClient({ category, exercise, exerciseData }: { category: string; exercise: string; exerciseData: any }) {
+  const ex = exerciseData
+
+  const [currentSet, setCurrentSet] = useState(1)
+  const [currentRep, setCurrentRep] = useState(0)
+  const [isResting, setIsResting] = useState(false)
+  const [restTimeLeft, setRestTimeLeft] = useState(ex.restTime)
+  const [isRestTimerActive, setIsRestTimerActive] = useState(false)
+  const [showVideo, setShowVideo] = useState(true)
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout
+    if (isRestTimerActive && restTimeLeft > 0) {
+      interval = setInterval(() => {
+        setRestTimeLeft((time) => time - 1)
+      }, 1000)
+    } else if (restTimeLeft === 0) {
+      setIsRestTimerActive(false)
+      setIsResting(false)
+      setRestTimeLeft(ex.restTime)
+    }
+    return () => clearInterval(interval)
+  }, [isRestTimerActive, restTimeLeft, ex.restTime])
+
+  const handleRepComplete = () => {
+    const maxReps = Number.parseInt(ex.reps.split("-")[1])
+    if (currentRep < maxReps) {
+      setCurrentRep(currentRep + 1)
+    }
+  }
+
+  const handleRepDecrease = () => {
+    if (currentRep > 0) {
+      setCurrentRep(currentRep - 1)
+    }
+  }
+
+  const handleSetComplete = () => {
+    if (currentSet < ex.sets) {
+      setCurrentSet(currentSet + 1)
+      setCurrentRep(0)
+      setIsResting(true)
+      setIsRestTimerActive(true)
+      setRestTimeLeft(ex.restTime)
+    }
+  }
+
+  const handleReset = () => {
+    setCurrentSet(1)
+    setCurrentRep(0)
+    setIsResting(false)
+    setIsRestTimerActive(false)
+    setRestTimeLeft(ex.restTime)
+  }
+
+  const toggleRestTimer = () => {
+    setIsRestTimerActive(!isRestTimerActive)
+  }
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <Link href={`/kategori/${category}`}>
+              <Button variant="ghost" size="sm" className="gap-2">
+                <ArrowLeft className="w-4 h-4" />
+                Geri Dön
+              </Button>
+            </Link>
+            <div className="flex items-center gap-2">
+              <Link href="/profil">
+                <Button variant="outline" size="icon" className="rounded-lg bg-transparent">
+                  <User className="w-5 h-5" />
+                  <span className="sr-only">Hasta Profili</span>
+                </Button>
+              </Link>
+              <ThemeToggle />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div className="container mx-auto px-4 py-8 max-w-6xl">
+        {/* Exercise Title */}
+        <div className="mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-balance">{ex.title}</h1>
+          <p className="text-lg text-muted-foreground leading-relaxed">{ex.description}</p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Visual Section */}
+          <div className="space-y-6">
+            <Card className="overflow-hidden">
+              <div className="relative aspect-[4/3] bg-muted">
+                {showVideo && ex.video ? (
+                  <img
+                    src={ex.video || "/placeholder.svg"}
+                    alt={`${ex.title} - Hareket Gösterimi`}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <img src={ex.image || "/placeholder.svg"} alt={ex.title} className="w-full h-full object-cover" />
+                )}
+                {ex.video && (
+                  <div className="absolute bottom-4 right-4 flex gap-2">
+                    <Button
+                      size="sm"
+                      variant={showVideo ? "default" : "secondary"}
+                      onClick={() => setShowVideo(true)}
+                      className="gap-2"
+                    >
+                      <Play className="w-4 h-4" />
+                      Animasyon
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant={!showVideo ? "default" : "secondary"}
+                      onClick={() => setShowVideo(false)}
+                    >
+                      Resim
+                    </Button>
+                  </div>
+                )}
+              </div>
+            </Card>
+
+            {/* Instructions */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Nasıl Yapılır?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ol className="space-y-3">
+                  {ex.instructions.map((instruction: string, index: number) => (
+                    <li key={index} className="flex gap-3">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent text-accent-foreground flex items-center justify-center text-sm font-semibold">
+                        {index + 1}
+                      </span>
+                      <span className="text-muted-foreground leading-relaxed pt-0.5">{instruction}</span>
+                    </li>
+                  ))}
+                </ol>
+              </CardContent>
+            </Card>
+
+            {ex.warnings && (
+              <Card className="border-destructive/50">
+                <CardHeader>
+                  <CardTitle className="text-destructive">Önemli Uyarılar</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2">
+                    {ex.warnings.map((warning: string, index: number) => (
+                      <li key={index} className="flex gap-2 text-sm text-muted-foreground">
+                        <span className="text-destructive">•</span>
+                        {warning}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            )}
+          </div>
+
+          {/* Workout Tracker Section */}
+          <div className="space-y-6">
+            {/* Set & Rep Counter */}
+            <Card className="border-accent">
+              <CardHeader>
+                <CardTitle className="text-center">Egzersiz Takibi</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {/* Current Set */}
+                <div className="text-center">
+                  <p className="text-sm text-muted-foreground mb-2">Mevcut Set</p>
+                  <div className="text-6xl font-bold text-accent">
+                    {currentSet} <span className="text-3xl text-muted-foreground">/ {ex.sets}</span>
+                  </div>
+                </div>
+
+                {/* Current Rep */}
+                <div className="text-center">
+                  <p className="text-sm text-muted-foreground mb-2">Tekrar Sayısı</p>
+                  <div className="flex items-center justify-center gap-4">
+                    <Button
+                      size="icon"
+                      variant="outline"
+                      onClick={handleRepDecrease}
+                      disabled={isResting}
+                      className="h-12 w-12 bg-transparent"
+                    >
+                      <Minus className="w-5 h-5" />
+                    </Button>
+                    <div className="text-5xl font-bold min-w-[100px] text-center">{currentRep}</div>
+                    <Button
+                      size="icon"
+                      variant="outline"
+                      onClick={handleRepComplete}
+                      disabled={isResting}
+                      className="h-12 w-12 bg-transparent"
+                    >
+                      <Plus className="w-5 h-5" />
+                    </Button>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-2">Hedef: {ex.reps} tekrar</p>
+                </div>
+
+                {/* Rest Timer */}
+                {isResting && (
+                  <div className="text-center p-6 bg-muted rounded-lg">
+                    <p className="text-sm text-muted-foreground mb-2">Dinlenme Süresi</p>
+                    <div className="text-5xl font-bold text-primary mb-4">
+                      {Math.floor(restTimeLeft / 60)}:{(restTimeLeft % 60).toString().padStart(2, "0")}
+                    </div>
+                    <Button onClick={toggleRestTimer} variant="outline" size="sm" className="gap-2 bg-transparent">
+                      {isRestTimerActive ? (
+                        <>
+                          <Pause className="w-4 h-4" />
+                          Durdur
+                        </>
+                      ) : (
+                        <>
+                          <Play className="w-4 h-4" />
+                          Devam Et
+                        </>
+                      )}
+                    </Button>
+                  </div>
+                )}
+
+                {/* Action Buttons */}
+                <div className="flex gap-3">
+                  <Button
+                    onClick={handleSetComplete}
+                    disabled={isResting || currentSet >= ex.sets}
+                    className="flex-1"
+                    size="lg"
+                  >
+                    Set Tamamla
+                  </Button>
+                  <Button onClick={handleReset} variant="outline" size="lg" className="gap-2 bg-transparent">
+                    <RotateCcw className="w-4 h-4" />
+                    Sıfırla
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Exercise Info */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Egzersiz Bilgileri</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">Zorluk</p>
+                    <p className="font-semibold">{ex.difficulty}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">Ekipman</p>
+                    <p className="font-semibold">{ex.equipment}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">Set Sayısı</p>
+                    <p className="font-semibold">{ex.sets} set</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">Tekrar</p>
+                    <p className="font-semibold">{ex.reps} tekrar</p>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-sm text-muted-foreground mb-2">Hedef Kaslar ve Bölgeler</p>
+                  <div className="flex flex-wrap gap-2">
+                    {ex.targetMuscles.map((muscle: string, index: number) => (
+                      <span key={index} className="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm">
+                        {muscle}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
