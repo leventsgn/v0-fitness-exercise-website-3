@@ -70,7 +70,7 @@ export default function HomePage() {
                 <Activity className="w-6 h-6 text-accent-foreground" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold tracking-tight text-balance">FiziyoRehber</h1>
+                <h1 className="text-2xl font-bold tracking-tight text-balance">FizyoRehber</h1>
                 <p className="text-sm text-muted-foreground">Profesyonel Fizyoterapi Egzersiz Rehberi</p>
               </div>
             </div>
@@ -141,7 +141,7 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="border-t border-border mt-16">
         <div className="container mx-auto px-4 py-8">
-          <p className="text-center text-muted-foreground text-sm">© 2025 FiziyoRehber. Tüm hakları saklıdır.</p>
+          <p className="text-center text-muted-foreground text-sm">© 2025 FizyoRehber. Tüm hakları saklıdır.</p>
         </div>
       </footer>
     </div>

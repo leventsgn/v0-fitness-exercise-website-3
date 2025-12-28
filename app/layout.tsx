@@ -11,7 +11,7 @@ const REPO_NAME = process.env.GITHUB_PAGES ? (process.env.GITHUB_REPOSITORY?.spl
 const BASE = REPO_NAME ? `/${REPO_NAME}` : ''
 
 export const metadata: Metadata = {
-  title: "FiziyoRehber - Fizyoterapi Egzersiz Rehberi",
+  title: "FizyoRehber - Fizyoterapi Egzersiz Rehberi",
   description: "Profesyonel fizyoterapi egzersizleri ve doğru hareket teknikleri",
   generator: "v0.app",
 
