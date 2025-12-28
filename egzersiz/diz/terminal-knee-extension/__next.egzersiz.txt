@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
 2:I[55703,["/v0-fitness-exercise-website-3/_next/static/chunks/5da6dfa1850e802d.js","/v0-fitness-exercise-website-3/_next/static/chunks/c4964899fe458d94.js"],"default"]
 3:I[90714,["/v0-fitness-exercise-website-3/_next/static/chunks/5da6dfa1850e802d.js","/v0-fitness-exercise-website-3/_next/static/chunks/c4964899fe458d94.js"],"default"]
-0:{"buildId":"mEAEy1P-cDbCX5G0U1-Dy","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"AHWZ7rHU85FN7kSF3xAjc","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
