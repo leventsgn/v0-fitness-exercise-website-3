@@ -417,7 +417,7 @@ export const exerciseDetails: Record<string, Record<string, any>> = {
     },
   },
   ayak: {
-    "ayak-bileği-pumpa": {
+    "ayak-bilegi-pumpa": {
       title: "Ayak Bileği Pompa Egzersizi",
       description:
         "Ayak bileği mobilitesini artıran ve şişliği azaltan temel egzersiz. Burkulma sonrası rehabilitasyonda kullanılır.",
@@ -458,7 +458,7 @@ export const exerciseDetails: Record<string, Record<string, any>> = {
       targetMuscles: ["Ayak Kemer Kasları", "Fleksor Digitorum Brevis"],
       warnings: ["Kramp olursa dinlenin", "Yavaş başlayın"],
     },
-    "ayak-bileği-rotasyonu": {
+    "ayak-bilegi-rotasyonu": {
       title: "Ayak Bileği Rotasyonu",
       description: "Ayak bileği mobilitesini artıran dairesel hareket.",
       image: `${BASE}/ankle-and-foot-physiotherapy-rehabilitation.jpg`,

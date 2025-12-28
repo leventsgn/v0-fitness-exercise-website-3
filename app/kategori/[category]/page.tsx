@@ -185,7 +185,7 @@ const exerciseData: Record<
     title: "Ayak ve Ayak Bileği",
     exercises: [
       {
-        id: "ayak-bileği-pumpa",
+        id: "ayak-bilegi-pumpa",
         title: "Ayak Bileği Pompa",
         difficulty: "Başlangıç",
         equipment: "Ekipman Yok",
@@ -199,7 +199,7 @@ const exerciseData: Record<
         image: "/ankle-and-foot-physiotherapy-rehabilitation.jpg",
       },
       {
-        id: "ayak-bileği-rotasyonu",
+        id: "ayak-bilegi-rotasyonu",
         title: "Ayak Bileği Rotasyonu",
         difficulty: "Başlangıç",
         equipment: "Ekipman Yok",
