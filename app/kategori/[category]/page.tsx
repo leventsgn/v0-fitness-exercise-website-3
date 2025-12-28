@@ -5,6 +5,9 @@ import { ArrowLeft, ChevronRight, User } from "lucide-react"
 import { notFound } from "next/navigation"
 import { ThemeToggle } from "@/components/theme-toggle"
 
+const REPO_NAME = process.env.GITHUB_PAGES ? (process.env.GITHUB_REPOSITORY?.split('/')?.[1] ?? 'v0-fitness-exercise-website-3') : ''
+const BASE = REPO_NAME ? `/${REPO_NAME}` : ''
+
 // Exercise data organized by categories
 const exerciseData: Record<
   string,
@@ -268,7 +271,7 @@ export default async function CategoryPage({ params }: { params: { category: str
               <Card className="group hover:border-accent transition-all duration-300 overflow-hidden cursor-pointer h-full">
                 <div className="relative h-48 overflow-hidden bg-muted">
                   <img
-                    src={exercise.image || "/placeholder.svg"}
+                    src={`${BASE}${exercise.image || "/placeholder.svg"}`}
                     alt={exercise.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />

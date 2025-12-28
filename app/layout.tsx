@@ -11,22 +11,25 @@ export const metadata: Metadata = {
   title: "FiziyoRehber - Fizyoterapi Egzersiz Rehberi",
   description: "Profesyonel fizyoterapi egzersizleri ve doğru hareket teknikleri",
   generator: "v0.app",
+  const REPO_NAME = process.env.GITHUB_PAGES ? (process.env.GITHUB_REPOSITORY?.split('/')?.[1] ?? 'v0-fitness-exercise-website-3') : ''
+  const BASE = REPO_NAME ? `/${REPO_NAME}` : ''
+
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
+        url: `${BASE}/icon-light-32x32.png`,
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/icon-dark-32x32.png",
+        url: `${BASE}/icon-dark-32x32.png`,
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/icon.svg",
+        url: `${BASE}/icon.svg`,
         type: "image/svg+xml",
       },
     ],
-    apple: "/apple-icon.png",
+    apple: `${BASE}/apple-icon.png`,
   },
 }
 
