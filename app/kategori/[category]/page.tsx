@@ -267,7 +267,7 @@ export default async function CategoryPage({ params }: { params: { category: str
       <section className="container mx-auto px-4 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {categoryData.exercises.map((exercise) => (
-            <Link key={exercise.id} href={`/egzersiz/${params.category}/${exercise.id}`}>
+            <Link key={exercise.id} href={`/egzersiz/${category}/${exercise.id}`}>
               <Card className="group hover:border-accent transition-all duration-300 overflow-hidden cursor-pointer h-full">
                 <div className="relative h-48 overflow-hidden bg-muted">
                   <img
