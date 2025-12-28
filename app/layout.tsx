@@ -3,6 +3,8 @@ import type { Metadata } from "next"
 import { Geist } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
+import { SessionProvider } from "next-auth/react"
+import { Toaster } from "@/components/ui/sonner"
 import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
@@ -42,9 +44,12 @@ export default function RootLayout({
   return (
     <html lang="tr" suppressHydrationWarning>
       <body className={`font-sans antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-        </ThemeProvider>
+        <SessionProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            {children}
+            <Toaster />
+          </ThemeProvider>
+        </SessionProvider>
         <Analytics />
       </body>
     </html>

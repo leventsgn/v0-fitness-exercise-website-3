@@ -75,16 +75,16 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex items-center gap-2">
+              <Link href="/giris">
+                <Button variant="default" size="sm" className="rounded-lg gap-2">
+                  <User className="w-4 h-4" />
+                  <span>Giriş Yap</span>
+                </Button>
+              </Link>
               <Link href="/fizyoterapist">
                 <Button variant="outline" size="sm" className="rounded-lg gap-2 bg-transparent">
                   <Activity className="w-4 h-4" />
                   <span className="hidden sm:inline">Fizyoterapist</span>
-                </Button>
-              </Link>
-              <Link href="/profil">
-                <Button variant="outline" size="icon" className="rounded-lg bg-transparent">
-                  <User className="w-5 h-5" />
-                  <span className="sr-only">Hasta Profili</span>
                 </Button>
               </Link>
               <ThemeToggle />

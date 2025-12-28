@@ -3,3 +3,13 @@ node_modules
 out
 package-lock.json
 fitness-exercise-website.zip
+
+# Prisma
+/lib/generated/prisma
+*.db
+*.db-journal
+
+# Environment variables
+.env
+.env.local
+.env.*.local
