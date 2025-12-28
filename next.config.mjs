@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
-const repoName = process.env.GITHUB_REPOSITORY?.split('/')?.[1] ?? ''
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')?.[1] ?? 'v0-fitness-exercise-website-3'
 const isGitHubPages = Boolean(process.env.GITHUB_PAGES)
 
 const nextConfig = {
-  // Note: Static export disabled for authentication features
-  // basePath and assetPrefix are also disabled for local development
+  // GitHub Pages için static export
+  output: 'export',
+  basePath: isGitHubPages ? `/${repoName}` : '',
+  assetPrefix: isGitHubPages ? `/${repoName}/` : '',
   typescript: {
     ignoreBuildErrors: true,
   },
