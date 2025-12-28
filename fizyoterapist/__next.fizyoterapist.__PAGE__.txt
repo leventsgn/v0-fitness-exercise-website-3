@@ -1,0 +1,9 @@
+1:"$Sreact.fragment"
+2:I[27834,["/v0-fitness-exercise-website-3/_next/static/chunks/3337476739009024.js","/v0-fitness-exercise-website-3/_next/static/chunks/796e7f5bb07ad38d.js"],"ClientPageRoot"]
+3:I[30108,["/v0-fitness-exercise-website-3/_next/static/chunks/ad7a3f9cb2aa33b6.js","/v0-fitness-exercise-website-3/_next/static/chunks/5feee5744f7f29b3.js","/v0-fitness-exercise-website-3/_next/static/chunks/250dbad36e796fe3.js","/v0-fitness-exercise-website-3/_next/static/chunks/5974174c81994859.js"],"default"]
+6:I[89836,["/v0-fitness-exercise-website-3/_next/static/chunks/3337476739009024.js","/v0-fitness-exercise-website-3/_next/static/chunks/796e7f5bb07ad38d.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+0:{"buildId":"mlrPo2r473yniw3w-bUrg","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/v0-fitness-exercise-website-3/_next/static/chunks/5feee5744f7f29b3.js","async":true}],["$","script","script-1",{"src":"/v0-fitness-exercise-website-3/_next/static/chunks/250dbad36e796fe3.js","async":true}],["$","script","script-2",{"src":"/v0-fitness-exercise-website-3/_next/static/chunks/5974174c81994859.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+4:{}
+5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null

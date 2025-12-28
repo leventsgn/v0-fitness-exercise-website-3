@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fegzersiz\u002F[category]\u002F[exercise]","\u002Fkategori\u002F[category]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
