@@ -1,7 +1,7 @@
 :HL["/v0-fitness-exercise-website-3/_next/static/chunks/5e411ded52209e2e.css","style"]
 :HL["/v0-fitness-exercise-website-3/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/quadriceps-strengthening-exercise-chair.jpg","image"]
-:HL["/wall-sit-exercise-knee-rehabilitation.jpg","image"]
-:HL["/hamstring-stretch-resistance-band-therapy.jpg","image"]
-:HL["/step-up-exercise-knee-rehabilitation.jpg","image"]
-0:{"buildId":"PPV6J5j5mdeAE4fkxWM5c","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"kategori","paramType":null,"paramKey":"kategori","hasRuntimePrefetch":false,"slots":{"children":{"name":"category","paramType":"d","paramKey":"diz","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/v0-fitness-exercise-website-3/quadriceps-strengthening-exercise-chair.jpg","image"]
+:HL["/v0-fitness-exercise-website-3/wall-sit-exercise-knee-rehabilitation.jpg","image"]
+:HL["/v0-fitness-exercise-website-3/hamstring-stretch-resistance-band-therapy.jpg","image"]
+:HL["/v0-fitness-exercise-website-3/step-up-exercise-knee-rehabilitation.jpg","image"]
+0:{"buildId":"RiXbZH-FC89NkP9d68eQa","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"kategori","paramType":null,"paramKey":"kategori","hasRuntimePrefetch":false,"slots":{"children":{"name":"category","paramType":"d","paramKey":"diz","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

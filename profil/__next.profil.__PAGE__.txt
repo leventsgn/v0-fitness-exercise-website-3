@@ -3,7 +3,7 @@
 3:I[78009,["/v0-fitness-exercise-website-3/_next/static/chunks/f88360be96010747.js","/v0-fitness-exercise-website-3/_next/static/chunks/148bc0df927491a6.js","/v0-fitness-exercise-website-3/_next/static/chunks/332b48e79f5b4faa.js"],"default"]
 6:I[30611,["/v0-fitness-exercise-website-3/_next/static/chunks/5da6dfa1850e802d.js","/v0-fitness-exercise-website-3/_next/static/chunks/c4964899fe458d94.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
-0:{"buildId":"PPV6J5j5mdeAE4fkxWM5c","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/v0-fitness-exercise-website-3/_next/static/chunks/148bc0df927491a6.js","async":true}],["$","script","script-1",{"src":"/v0-fitness-exercise-website-3/_next/static/chunks/332b48e79f5b4faa.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"RiXbZH-FC89NkP9d68eQa","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/v0-fitness-exercise-website-3/_next/static/chunks/148bc0df927491a6.js","async":true}],["$","script","script-1",{"src":"/v0-fitness-exercise-website-3/_next/static/chunks/332b48e79f5b4faa.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
 4:{}
 5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
 8:null
